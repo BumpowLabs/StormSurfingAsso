@@ -9,7 +9,12 @@ import { slideInAnimation } from './animations/route-animations'; // Chemin vers
 })
 export class AppComponent {
   title = 'app';
+
+  constructor() {}
+
   prepareRoute(outlet: any) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
+
+  
 }
