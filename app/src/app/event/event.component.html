@@ -1,6 +1,6 @@
 <body class="">
     <div>
-      <section class="h-dvh w-dvw max-h-[90rem] relative pt-10">
+      <section class="h-dvh w-dvw max-h-[80rem] relative pt-10">
         <div class="absolute inset-0 z-[1]">
           <img class="h-screen w-full object-cover object-center" src="image3.jpg" alt="">
         </div>
@@ -26,14 +26,14 @@
             </div>
             
             <!-- Section des événements à droite -->
-            <div class="flex-1 flex-col pt-32 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div *ngFor="let event of events" class="bg-white/10 rounded-lg shadow-lg p-4 backdrop-blur-2xl bg-black max-h-[400px] h-auto flex flex-col items-center justify-center">
-                <img [src]="event.image" alt="Event Image" class="h-40 w-full object-contain rounded-lg">
+            <div class="flex-1 flex-col pt-1 md:pt-28 pb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div *ngFor="let event of events" class="lg:max-h-[400px] md:lg:max-h-[400px] xl:max-h-[400px] bg-white/10 rounded-lg shadow-lg p-4 backdrop-blur-2xl bg-black max-h-[150px] h-auto flex flex-col items-center justify-center">
+                <img [src]="event.image" alt="Event Image" class="h-40 w-full object-contain rounded-lg hidden sm:block">
                 <div class="mt-4 text-gray-50 text-center">
                   <h2 class="text-lg font-bold">{{ event.title }}</h2>
-                  <p class="text-sm font-light mt-2">{{ event.description }}</p>
-                  <p class="text-sm font-semibold mt-2">Date : {{ event.date }}</p>
-                  <button class="mt-4 text-accent-400 border border-accent-400 rounded-full px-6 py-1 hover:bg-accent-400 hover:text-white">
+                  <p class="text-sm font-light mt-2 hidden sm:block">{{ event.description }}</p>
+                  <p class="text-sm font-semibold mt-2 hidden sm:block">Date : {{ event.date }}</p>
+                  <button class="hidden sm:block mt-4 text-accent-400 border border-accent-400 rounded-full px-6 py-1 hover:bg-accent-400 hover:text-white">
                     En savoir plus
                   </button>
                 </div>
