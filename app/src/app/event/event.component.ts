@@ -9,22 +9,25 @@ import { Router } from '@angular/router';
 export class EventComponent {
   events = [
     {
-      title: 'Projection cinéma Pleneuf Val-André Lost in The Swell',
-      description: 'Un événement en plein air pour regarder les meilleurs films de surf.',
-      date: 'Vendredi 10 Janvier 2025',
+      title: 'Projection cinéma Pleneuf Val-André "Lost in The Train"',
+      description: 'Soirée surf avec la présence de Aurel Jacob.',
+      date: 'Vendredi 10 Janvier 2025 à 20h30',
       image: 'event1.jpg',
+	  url: 'https://www.helloasso.com/associations/frehel-surf-n-ride/evenements/soiree-surf',
     },
     {
-      title: 'A venir ... ',
-      description: "D'autres événements arriveront d'ici Avril 2025.",
-      date: 'Avril 2025',
-      image: 'https://i0.wp.com/www.unikore.fr/wp-content/uploads/2019/01/coming-soon.png?fit=1200%2C345&ssl=1',
+      title: 'Projection cinéma Pleneuf Val-André "Fun First"',
+      description: "Soirée surf avec la présence de Ian Fontaine.",
+      date: 'Vendredi 10 Janvier 2025 à 20h30',
+      image: 'event2.jpg',
+	  url: 'https://www.helloasso.com/associations/frehel-surf-n-ride/evenements/soiree-surf',
     },
     {
-      title: 'A venir ... ',
-      description: "D'autres événements arriveront d'ici Avril 2025.",
-      date: 'Avril 2025',
-      image: 'https://i0.wp.com/www.unikore.fr/wp-content/uploads/2019/01/coming-soon.png?fit=1200%2C345&ssl=1',
+      title: 'Projection cinéma Pleneuf Val-André "Fun First"',
+      description: "Soirée surf avec la présence de Maelys.",
+      date: 'Vendredi 10 Janvier 2025 à 20h30',
+      image: 'event3.jpg',
+	  url: 'https://www.helloasso.com/associations/frehel-surf-n-ride/evenements/soiree-surf',
     },
   ];
 
