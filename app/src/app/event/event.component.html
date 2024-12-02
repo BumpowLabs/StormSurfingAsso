@@ -34,7 +34,7 @@
                   <p class="text-sm font-light mt-2 hidden sm:block">{{ event.description }}</p>
                   <p class="text-sm font-semibold mt-2 hidden sm:block">Date : {{ event.date }}</p>
                   <button class="hidden sm:block mt-4 text-accent-400 border border-accent-400 rounded-full px-6 py-1 hover:bg-accent-400 hover:text-white">
-                    En savoir plus
+                   <a [href]="event.url" > En savoir plus</a>
                   </button>
                 </div>
               </div>
