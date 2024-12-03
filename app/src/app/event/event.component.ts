@@ -23,8 +23,8 @@ export class EventComponent {
 	  url: 'https://www.helloasso.com/associations/frehel-surf-n-ride/evenements/soiree-surf',
     },
     {
-      title: 'Projection cinéma Pleneuf Val-André "Fun First"',
-      description: "Soirée surf avec la présence de Maelys.",
+      title: 'Projection cinéma Pleneuf Val-André "Be You"',
+      description: "Soirée surf avec la présence de Maelys Jouault.",
       date: 'Vendredi 10 Janvier 2025 à 20h30',
       image: 'event3.jpg',
 	  url: 'https://www.helloasso.com/associations/frehel-surf-n-ride/evenements/soiree-surf',
