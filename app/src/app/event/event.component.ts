@@ -31,20 +31,6 @@ export class EventComponent implements OnInit {
     },
   ];
 
-  isMobileView: boolean = false;
-
   constructor(private router: Router) {} // Placez le constructeur au début
 
-  @HostListener('window:resize', [])
-  onResize() {
-    this.checkMobileView();
-  }
-
-  ngOnInit() {
-    this.checkMobileView();
-  }
-
-  private checkMobileView() {
-    this.isMobileView = window.innerWidth <= 768; // Définit un seuil pour le mode mobile
-  }
 }

@@ -30,12 +30,10 @@
             <div *ngFor="let event of events" class="lg:max-h-[400px] md:lg:max-h-[400px] xl:max-h-[400px] bg-white/10 rounded-lg shadow-lg p-4 backdrop-blur-2xl bg-black max-h-[150px] h-auto flex flex-col items-center justify-center">
               <img [src]="event.image" alt="Event Image" class="h-40 w-full object-contain rounded-lg hidden sm:block">
               <div class="mt-4 text-gray-50 text-center">
-                <!-- Titre avec lien en mode téléphone -->
                 <h2 class="text-lg font-bold">
-                  <a *ngIf="isMobileView" [href]="event.url" class="text-accent-400 hover:underline">
+                  <a [href]="event.url" class="text-accent-400 hover:underline">
                     {{ event.title }}
                   </a>
-                  <span *ngIf="!isMobileView">{{ event.title }}</span>
                 </h2>
                 <p class="text-sm font-light mt-2 hidden sm:block">{{ event.description }}</p>
                 <p class="text-sm font-semibold mt-2 hidden sm:block">Date : {{ event.date }}</p>
