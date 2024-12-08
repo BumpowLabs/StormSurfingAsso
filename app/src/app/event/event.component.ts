@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.scss'] // Correction ici
 })
-export class EventComponent implements OnInit {
+export class EventComponent {
   events = [
     {
       title: 'Projection cinéma Pleneuf Val-André "Lost in The Train"',
