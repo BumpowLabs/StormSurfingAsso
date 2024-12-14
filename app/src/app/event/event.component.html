@@ -8,8 +8,8 @@
           <div class="h-full w-full flex flex-col md:flex-row justify-between relative space-y-3 md:space-y-0 transition-all duration-300">
             <!-- Section principale à gauche -->
             <div class="flex-1">
-              <div class="mt-2 md:mt-10 mb-0 text-gray-50 space-y-2 md:space-y-6">
-                <span class="font-light text-xs md:text-sm text-accent-500">Storm Surfing Association</span>
+              <div class="mt-16 md:mt-10 mb-0 text-gray-50 space-y-2 md:space-y-6">
+                <span class="hidden md:inline-block font-light text-xs md:text-sm text-accent-500">Storm Surfing Association</span>
                 <h1 class="text-2xl md:text-7xl max-w-[30rem] font-bold">Nos Événements</h1>
                 <p class="max-w-[30rem] font-light before:content-[''] relative before:absolute before:w-px before:h-full before:left-0 before:top-0 before:-translate-x-4 before:bg-accent-500 text-sm md:text-base">
                   L'Association a pour objectif de transmettre l'esprit du surf à travers divers événements, créés pour favoriser le partage et les moments de convivialité.
@@ -24,7 +24,6 @@
                 </div>
               </div>
             </div>
-            
             <!-- Section des événements à droite -->
             <div class="flex-1 flex-col pt-0 md:pt-28 pb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-fr max-w-[1400px] mx-auto">
               <div *ngFor="let event of events; let i = index" 
@@ -58,4 +57,4 @@
         </div>
       </section>
     </div>
-  </body>
+  

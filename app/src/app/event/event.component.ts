@@ -14,14 +14,14 @@ interface Event {
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
-  styleUrl: './event.component.scss'
+  styleUrls: ['./event.component.scss'] // Correction ici
 })
 export class EventComponent implements OnInit {
   events: Event[] = [
     {
-      title: 'Projection cinéma Pleneuf Val-André Lost in The Swell',
-      description: 'Un événement en plein air pour regarder les meilleurs films de surf.',
-      date: 'Vendredi 10 Janvier 2025',
+      title: 'Projection cinéma Pleneuf Val-André "Lost in The Train"',
+      description: 'Soirée surf avec la présence de Aurel Jacob.',
+      date: 'Vendredi 10 Janvier 2025 à 20h30',
       image: 'event1.jpg',
       loading: true,
       visible: true,
