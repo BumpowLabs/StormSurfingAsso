@@ -29,7 +29,7 @@
               <div *ngFor="let event of events; let i = index" 
                    [id]="'event-' + i"
                    [ngClass]="{'opacity-0': !event.visible, 'opacity-100': event.visible}"
-                   class="group transition-all duration-300 hover:scale-105 min-h-[120px] h-auto sm:h-[300px] md:h-[400px] lg:h-[400px] bg-white/10 rounded-lg shadow-lg p-4 md:p-4 backdrop-blur-2xl bg-black flex flex-col items-center justify-between overflow-hidden">
+                   class="group transition-all duration-300 hover:scale-105 min-h-[120px] h-auto sm:h-[300px] md:h-[400px] lg:h-[400px] bg-white/10 shadow-lg p-4 md:p-4 backdrop-blur-2xl bg-black flex flex-col items-center justify-between overflow-hidden">
                 <!-- Container de l'image avec position relative et overflow hidden -->
                 <div class="relative w-full flex-1 overflow-hidden rounded-lg">
                     <img [src]="event.image" 
@@ -48,7 +48,7 @@
                   <p class="text-[10px] sm:text-sm md:text-sm font-light mt-1">{{ event.description }}</p>
                   <p class="text-[10px] sm:text-sm md:text-sm font-semibold mt-1">Date : {{ event.date }}</p>
                   <button class="mt-1 md:mt-2 text-[10px] sm:text-sm md:text-sm text-accent-400 border border-accent-400 rounded-full px-2 sm:px-4 md:px-6 py-0.5 sm:py-1 md:py-1 hover:bg-accent-400 hover:text-white">
-                    En savoir plus
+                    <a [href]="event.url">En savoir plus</a>
                   </button>
                 </div>
               </div>
