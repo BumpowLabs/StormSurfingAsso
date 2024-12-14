@@ -1,15 +1,15 @@
 <body class="">
     <div>
-      <section class="min-h-dvh w-dvw max-h-none md:max-h-screen relative pt-5 md:pt-10">
-        <div class="absolute inset-0 z-[1]">
+      <section class="min-h-dvh w-dvw max-h-none md:min-h-fit md:h-auto lg:h-screen relative pt-5 md:pt-10">
+        <div class="absolute inset-0 z-[1] md:h-full md:min-h-[150vh] lg:h-screen">
           <img class="h-full w-full object-cover object-center" src="image3.jpg" alt="">
         </div>
         <div class="max-w-[120rem] mx-auto h-full relative z-[2] px-4 md:px-8 lg:px-10">
-          <div class="h-full w-full flex flex-col md:flex-row justify-between relative space-y-3 md:space-y-0 transition-all duration-300">
+          <div class="h-full w-full flex flex-col lg:flex-row justify-between relative space-y-3 lg:space-y-0 transition-all duration-300">
             <!-- Section principale à gauche -->
             <div class="flex-1">
-              <div class="mt-16 md:mt-10 mb-0 text-gray-50 space-y-2 md:space-y-6">
-                <span class="hidden md:inline-block font-light text-xs md:text-sm text-accent-500">Storm Surfing Association</span>
+              <div class="mt-5 lg:mt-10 mb-0 text-gray-50 space-y-2 md:space-y-6">
+                <span class="font-light text-xs md:text-sm text-accent-500">Storm Surfing Association</span>
                 <h1 class="text-2xl md:text-7xl max-w-[30rem] font-bold">Nos Événements</h1>
                 <p class="max-w-[30rem] font-light before:content-[''] relative before:absolute before:w-px before:h-full before:left-0 before:top-0 before:-translate-x-4 before:bg-accent-500 text-sm md:text-base">
                   L'Association a pour objectif de transmettre l'esprit du surf à travers divers événements, créés pour favoriser le partage et les moments de convivialité.
@@ -25,11 +25,11 @@
               </div>
             </div>
             <!-- Section des événements à droite -->
-            <div class="flex-1 flex-col pt-0 md:pt-28 pb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-fr max-w-[1400px] mx-auto">
+            <div class="flex-1 flex-col pt-0 lg:pt-28 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 auto-rows-fr max-w-[1400px] mx-auto">
               <div *ngFor="let event of events; let i = index" 
                    [id]="'event-' + i"
                    [ngClass]="{'opacity-0': !event.visible, 'opacity-100': event.visible}"
-                   class="group transition-all duration-300 hover:scale-105 min-h-[120px] h-auto sm:h-[200px] md:h-[400px] lg:h-[400px] bg-white/10 rounded-lg shadow-lg p-4 md:p-4 backdrop-blur-2xl bg-black flex flex-col items-center justify-between overflow-hidden">
+                   class="group transition-all duration-300 hover:scale-105 min-h-[120px] h-auto sm:h-[300px] md:h-[400px] lg:h-[400px] bg-white/10 rounded-lg shadow-lg p-4 md:p-4 backdrop-blur-2xl bg-black flex flex-col items-center justify-between overflow-hidden">
                 <!-- Container de l'image avec position relative et overflow hidden -->
                 <div class="relative w-full flex-1 overflow-hidden rounded-lg">
                     <img [src]="event.image" 
@@ -44,10 +44,10 @@
                 
                 <!-- Contenu de la carte -->
                 <div class="w-full mt-2 flex flex-col justify-end items-center text-gray-50 text-center relative z-10">
-                  <h2 class="text-xs md:text-lg font-bold transition-colors duration-300 group-hover:text-accent-400">{{ event.title }}</h2>
-                  <p class="text-[10px] md:text-sm font-light mt-1">{{ event.description }}</p>
-                  <p class="text-[10px] md:text-sm font-semibold mt-1">Date : {{ event.date }}</p>
-                  <button class="mt-1 md:mt-2 text-[10px] md:text-sm text-accent-400 border border-accent-400 rounded-full px-2 md:px-6 py-0.5 md:py-1 hover:bg-accent-400 hover:text-white">
+                  <h2 class="text-xs sm:text-base md:text-lg font-bold transition-colors duration-300 group-hover:text-accent-400">{{ event.title }}</h2>
+                  <p class="text-[10px] sm:text-sm md:text-sm font-light mt-1">{{ event.description }}</p>
+                  <p class="text-[10px] sm:text-sm md:text-sm font-semibold mt-1">Date : {{ event.date }}</p>
+                  <button class="mt-1 md:mt-2 text-[10px] sm:text-sm md:text-sm text-accent-400 border border-accent-400 rounded-full px-2 sm:px-4 md:px-6 py-0.5 sm:py-1 md:py-1 hover:bg-accent-400 hover:text-white">
                     En savoir plus
                   </button>
                 </div>
