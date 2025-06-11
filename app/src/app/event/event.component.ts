@@ -18,6 +18,15 @@ interface Event {
 })
 export class EventComponent implements OnInit {
   events: Event[] = [
+	{
+      title: 'Soirée concert avec "Sell The Kids"',
+      description: 'Nous organisons un petit concert au café de la plage - Plage de la Cale. Restauration sur place.',
+      date: 'Vendredi 27 Juin 2025 à 20h',
+      image: 'event3.jpg',
+      loading: true,
+      visible: true,
+      url: ''
+    },
     {
       title: 'Projection cinéma Pleneuf Val-André "Lost in The Train"',
       description: 'Soirée surf avec la présence de Aurel Jacob.',
@@ -35,15 +44,6 @@ export class EventComponent implements OnInit {
       loading: true,
       visible: true,
       url: 'https://www.helloasso.com/associations/frehel-surf-n-ride/evenements/soiree-surf',
-    },
-    {
-      title: 'Projection cinéma Pleneuf Val-André "Be You"',
-      description: 'Soirée surf avec la présence de Maelys Jouault.',
-      date: 'Vendredi 10 Janvier 2025 à 20h30',
-      image: 'event3.jpg',
-      loading: true,
-      visible: true,
-      url: 'https://www.helloasso.com/associations/frehel-surf-n-ride/evenements/soiree-surf'
     },
   ];
 
