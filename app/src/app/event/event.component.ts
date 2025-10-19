@@ -19,34 +19,55 @@ interface Event {
 export class EventComponent implements OnInit {
   events: Event[] = [
 	{
-      title: 'Soirée concert avec "Sell The Kids"',
-      description: 'Nous organisons un petit concert au café de la plage - Plage de la Cale. Restauration sur place.',
-      date: 'Vendredi 27 Juin 2025 à 20h',
-      image: 'event3.jpg',
+      title: 'Séance Yoga & Surf',
+      description: 'Offrez-vous une séance unique entre énergie de l’océan et sérénité du yoga.',
+      date: 'Samedi 06 et Dimanche 07 Décembre',
+      image: 'event5.jpg',
       loading: true,
       visible: true,
-      url: ''
+      url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/stage-sportif'
     },
     {
-      title: 'Projection cinéma Pleneuf Val-André "Lost in The Train"',
-      description: 'Soirée surf avec la présence de Aurel Jacob.',
-      date: 'Vendredi 10 Janvier 2025 à 20h30',
-      image: 'event1.jpg',
+      title: 'Séance Yoga',
+      description: 'Offrez-vous un instant de calme et d’harmonie avec le yoga d’Élise.',
+      date: 'Samedi 06 Décembre',
+      image: 'event6.jpg',
       loading: true,
       visible: true,
-      url: 'https://www.helloasso.com/associations/frehel-surf-n-ride/evenements/soiree-surf',
-    },
-    {
-      title: 'Projection cinéma Pleneuf Val-André "Fun First"',
-      description: 'Soirée surf avec la présence de Ian Fontaine.',
-      date: 'Vendredi 10 Janvier 2025 à 20h30',
-      image: 'event2.jpg',
-      loading: true,
-      visible: true,
-      url: 'https://www.helloasso.com/associations/frehel-surf-n-ride/evenements/soiree-surf',
+      url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/stage-sportif',
     },
   ];
-
+  pastEvents = [
+    {
+      title: 'Soirée concert "Sell The Kids"',
+      description: 'Retour sur notre soirée concert au café de la plage.',
+      date: '27 juin 2025',
+      image: 'event3.jpg',
+      url: '/evenements/passe/championnat-2024'
+    },
+	{
+      title: 'Projection "Lost in The Train"',
+      description: 'Retour sur notre projection au cinéma de Pleneuf Val André.',
+      date: '10 janvier 2025',
+      image: 'event1.jpg',
+      url: '/evenements/passe/championnat-2024'
+    },
+	{
+      title: 'Projection cinéma "Fun First"',
+      description: 'Retour sur notre projection au cinéma de Pleneuf Val André.',
+      date: '10 janvier 2025',
+      image: 'event2.jpg',
+      url: '/evenements/passe/championnat-2024'
+    },
+    {
+      title: 'Projection cinéma "Be You"',
+      description: 'Retour sur notre projection au cinéma de Pleneuf Val André.',
+      date: '10 janvier 2025',
+      image: 'event4.jpg',
+      url: '/evenements/passe/surf-smile'
+    }
+  ];	
+  
   isVisible = false;
 
   constructor(private router: Router) {}
