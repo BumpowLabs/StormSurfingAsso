@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { EventComponent } from './event/event.component';
 import { JoinComponent } from './join/join.component';
 import { ContactComponent } from './contact/contact.component';
+import { ArchivesComponent } from './archives/archives.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     EventComponent,
     JoinComponent,
-    ContactComponent
+    ContactComponent,
+    ArchivesComponent
   ],
   imports: [
     BrowserModule,

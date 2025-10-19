@@ -1,0 +1,96 @@
+<section class="min-h-dvh w-full max-h-none md:min-h-fit md:h-auto relative pt-6 md:pt-10">
+  <!-- Fond océan en dégradé (plein écran) -->
+  <div class="pointer-events-none fixed inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-b from-sky-300 via-blue-500 to-sky-700"></div>
+    <!-- Lueurs subtiles -->
+    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(ellipse_at_top,rgba(56,189,248,0.35)_0%,transparent_60%)]"></div>
+    <div class="absolute inset-0 opacity-20 blur-2xl bg-[radial-gradient(ellipse_at_bottom_right,rgba(99,102,241,0.35)_0%,transparent_60%)]"></div>
+    <!-- Fines lignes type houle -->
+    <div class="absolute inset-0 opacity-10 mix-blend-overlay bg-[repeating-linear-gradient(0deg,rgba(255,255,255,0.06)_0px,rgba(255,255,255,0.06)_1px,transparent_1px,transparent_6px)]"></div>
+  </div>
+
+  <div class="max-w-[120rem] mx-auto h-full relative z-[2] px-4 md:px-8 lg:px-10">
+    <div class="mb-6 md:mb-10 text-gray-50 mt-5">
+      <h1 class="text-2xl md:text-5xl font-bold">Archives photos</h1>
+      <p class="font-light text-sm md:text-base mt-2 text-gray-200/90">
+        Une salle d’archives visuelles de nos événements.
+      </p>
+    </div>
+
+    <!-- Grille photos -->
+    <div *ngIf="photos?.length; else noPhotos"
+         class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
+      <button
+        *ngFor="let p of photos; let i = index"
+        (click)="openLightbox(i)"
+        class="group relative overflow-hidden rounded-lg bg-black/70 ring-1 ring-white/10 hover:ring-accent-400/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent-400/40"
+        [attr.aria-label]="p.title || 'Photo d’archive'"
+      >
+        <img
+          [src]="p.thumb || p.src"
+          (load)="p.loading = false"
+          (error)="onImageError(p)"
+          [ngClass]="{'opacity-0': p.loading, 'opacity-100': !p.loading}"
+          class="w-full h-40 sm:h-48 md:h-56 object-cover object-center transition-opacity duration-300 grayscale-[0.15] group-hover:grayscale-0 group-hover:scale-105"
+          alt=""
+        />
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+        <!-- Badge année -->
+        <span *ngIf="p.year" class="absolute top-2 left-2 text-[10px] px-2 py-0.5 rounded-full bg-accent-400/20 border border-accent-400/30 text-gray-50 backdrop-blur">
+          {{ p.year }}
+        </span>
+        <!-- Légende -->
+        <div class="absolute bottom-0 left-0 right-0 p-2 md:p-3 bg-gradient-to-t from-black/60 to-transparent">
+          <p class="text-[10px] sm:text-xs md:text-sm text-gray-50 truncate">{{ p.title || 'Sans titre' }}</p>
+        </div>
+      </button>
+    </div>
+
+    <ng-template #noPhotos>
+      <div class="text-gray-200 text-center py-10">
+        Aucune photo pour le moment.
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Lightbox -->
+  <div *ngIf="lightbox.open" class="fixed inset-0 z-50 pointer-events-auto">
+    <!-- overlay cliquable - couvre l'arrière-plan -->
+    <div (click)="closeLightbox()" class="absolute inset-0 z-40 pointer-events-auto bg-black/80 backdrop-blur-sm" aria-label="Fermer la lightbox"></div>
+
+    <!-- wrapper qui ferme si on clique autour du contenu -->
+    <div class="relative z-50 flex items-center justify-center min-h-screen px-4" (click)="closeLightbox()">
+      <!-- contenu (stop propagation pour empêcher la fermeture en cliquant dessus) -->
+      <div class="relative z-50 flex items-center justify-center" (click)="$event.stopPropagation()">
+        <!-- <button type="button" (click)="closeLightbox(); $event.stopPropagation()"
+                class="absolute top-6 right-6 text-gray-200 hover:text-white p-2 rounded-full bg-white/10">
+          ✕
+        </button> -->
+
+        <button type="button" (click)="prev(); $event.stopPropagation()"
+                class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-gray-200 hover:text-white p-3 rounded-full bg-white/10">
+          ‹
+        </button>
+
+        <div class="max-w-[90vw] max-h-[85vh] px-6">
+          <img
+            [src]="currentPhoto?.src"
+            (error)="onImageError(currentPhoto!)"
+            class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+            alt=""
+          />
+          <div class="mt-3 text-center text-gray-200 text-sm">
+            <div class="font-medium">{{ currentPhoto?.title }}</div>
+            <div class="opacity-70">{{ currentPhoto?.date }}</div>
+          </div>
+        </div>
+
+        <button type="button" (click)="next(); $event.stopPropagation()"
+                class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 text-gray-200 hover:text-white p-3 rounded-full bg-white/10">
+          ›
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
