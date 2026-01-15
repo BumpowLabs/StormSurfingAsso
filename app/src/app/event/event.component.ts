@@ -37,8 +37,27 @@ export class EventComponent implements OnInit {
       url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/storm-surfing-association-projection-glisse-le-09-01-2026-a-20h30-2',
     },
   ];
+
   pastEvents = [
     {
+      title: 'Projection cinéma ',
+      description: 'Deuxième édition glisse au cinéma du casino de Pleneuf Val Andre avec l équipe de WatermanSport',
+      date: 'Vendredi 09 Janvier 2026 à 20h30',
+      image: 'event10.jpg',
+      loading: true,
+      visible: true,
+      url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/storm-surfing-association-projection-glisse-le-09-01-2026-a-20h30-2'
+    },
+    {
+      title: 'Entrainement piscine',
+      description: 'Entrainement sur la gestion du stress aquatique avec WatermanSport à la piscine de Lamballe',
+      date: 'Samedi 10 Janvier 2026 à 17H30',
+      image: 'event9.jpg',
+      loading: true,
+      visible: true,
+      url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/storm-surfing-association-projection-glisse-le-09-01-2026-a-20h30-2',
+    },
+	{
       title: 'Séance Yoga & Surf',
       description: 'Offrez-vous une séance unique entre énergie de l’océan et sérénité du yoga.',
       date: 'Samedi 06 et Dimanche 07 Décembre',

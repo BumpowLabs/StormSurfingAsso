@@ -30,6 +30,10 @@ export class ArchivesComponent implements OnInit {
     { src: 'gal9.jpeg', thumb: 'gal9.jpeg', title: 'Surf & Yoga', date: '06 - 07 Décembre 2025', loading: true },
     { src: 'gal10.jpeg', thumb: 'gal10.jpeg', title: 'Surf & Yoga', date: '06 - 07 Décembre 2025', loading: true },
 	{ src: 'gal11.jpeg', thumb: 'gal11.jpeg', title: 'Surf & Yoga', date: '06 - 07 Décembre 2025', loading: true },
+	{ src: 'gal14.jpeg', thumb: 'gal14.jpeg', title: 'Projection cinéma', date: '09 Janvier 2026', loading: true },
+	{ src: 'gal16.jpeg', thumb: 'gal16.jpeg', title: 'Entrainement piscine', date: '10 Janvier 2026', loading: true },
+	{ src: 'gal17.jpeg', thumb: 'gal17.jpeg', title: 'Entrainement piscine', date: '10 Janvier 2026', loading: true },
+	{ src: 'gal18.jpeg', thumb: 'gal18.jpeg', title: 'Entrainement piscine', date: '10 Janvier 2026', loading: true },
     // Ajoutez vos photos ici...
   ];
 
