@@ -19,14 +19,14 @@ interface Event {
 export class EventComponent implements OnInit {
   events: Event[] = [
 	{
-      title: 'Projection cinéma ',
-      description: 'Deuxième édition glisse au cinéma du casino de Pleneuf Val Andre avec l équipe de WatermanSport',
-      date: 'Vendredi 09 Janvier 2026 à 20h30',
-      image: 'event10.jpg',
+      title: 'Surf & Rescue Games ',
+      description: 'Sauvetage cotier et initiation surf - Apprendre les gestes qui sauvent ... et surfe tes premières vagues.',
+      date: 'Samedi 26 Septembre 2026 à 10h à 17h',
+      image: 'event11.jpg',
       loading: true,
       visible: true,
-      url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/storm-surfing-association-projection-glisse-le-09-01-2026-a-20h30-2'
-    },
+      url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/surf-and-rescue-games' },
+ /*
     {
       title: 'Entrainement piscine',
       description: 'Entrainement sur la gestion du stress aquatique avec WatermanSport à la piscine de Lamballe',
@@ -36,6 +36,7 @@ export class EventComponent implements OnInit {
       visible: true,
       url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/storm-surfing-association-projection-glisse-le-09-01-2026-a-20h30-2',
     },
+ */
   ];
 
   pastEvents = [
@@ -103,8 +104,8 @@ export class EventComponent implements OnInit {
       image: 'event4.jpg',
       url: '/evenements/passe/surf-smile'
     }
-  ];	
-  
+  ];
+
   isVisible = false;
 
   constructor(private router: Router) {}
