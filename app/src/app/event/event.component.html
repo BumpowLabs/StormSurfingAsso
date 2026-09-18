@@ -1,24 +1,23 @@
-<body class="">
     <div>
       <section class="min-h-dvh w-dvw max-h-none md:min-h-fit md:h-auto lg:h-screen relative pt-5 md:pt-10">
         <div class="absolute inset-0 z-[1] md:h-full ">
-          <img class="h-full w-full object-cover object-center" src="image3.jpg" alt="">
+          <img class="h-full w-full object-cover object-center" src="image3.jpg" fetchpriority="high" alt="Surf au Cap Fréhel, événements Storm Surfing Association">
         </div>
         <div class="max-w-[120rem] mx-auto h-full relative z-[2] px-4 md:px-8 lg:px-10">
           <div class="h-full w-full flex flex-col lg:flex-row justify-between relative space-y-3 lg:space-y-0 transition-all duration-300">
             <!-- Section principale à gauche -->
             <div class="flex-1">
               <div class="mt-5 lg:mt-10 mb-0 text-gray-50 space-y-2 md:space-y-6">
-                <span class="font-light text-xs md:text-sm text-accent-500">Storm Surfing Association</span>
+                <span class="text-xs md:text-sm font-medium text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.7)]">Storm Surfing Association</span>
                 <h1 class="text-2xl md:text-7xl max-w-[30rem] font-bold">Nos Événements</h1>
                 <p class="max-w-[30rem] font-light before:content-[''] relative before:absolute before:w-px before:h-full before:left-0 before:top-0 before:-translate-x-4 before:bg-accent-500 text-sm md:text-base">
-                  L'Association a pour objectif de transmettre l'esprit du surf à travers divers événements, créés pour favoriser le partage et les moments de convivialité.
+                  Tout au long de l'année, la Storm Surfing Association fait vivre l'esprit du surf : initiations, sauvetage côtier, sessions, séances yoga, projections et soirées. Des rendez-vous ouverts à tous pour progresser, se retrouver et partager de bons moments au bord de l'eau.
                 </p>
                 <div class="md:flex-row flex-col flex gap-4">
                   <button routerLink="/home" class="inline-block text-sm md:text-base font-medium px-8 md:px-12 py-2 bg-accent-400 rounded-lg cursor-pointer">
                     Revenir à l'accueil
                   </button>
-                  <button routerLink="/join" class="inline-block text-sm md:text-base font-medium px-8 md:px-12 py-2 border border-accent-400 rounded-full text-accent-400 cursor-pointer bg-gray-50/10 backdrop-blur-3xl">
+                  <button routerLink="/join" class="inline-block text-sm md:text-base font-medium px-8 md:px-12 py-2 border border-white/60 rounded-full text-white cursor-pointer bg-white/15 backdrop-blur-md hover:bg-white/25 transition-colors">
                     Nous Rejoindre
                   </button>
                 </div>
@@ -33,6 +32,7 @@
                 <!-- Container de l'image avec position relative et overflow hidden -->
                 <div class="relative w-full flex-1 overflow-hidden rounded-lg">
                     <img [src]="event.image" 
+                         [alt]="event.title.trim()" loading="lazy" decoding="async"
                          (load)="onImageLoad(event)"
                          (error)="onImageError(event)"
                          [ngClass]="{'opacity-0': event.loading, 'opacity-100': !event.loading}"
@@ -47,9 +47,7 @@
                   <h2 class="text-xs sm:text-base md:text-lg font-bold transition-colors duration-300 group-hover:text-accent-400">{{ event.title }}</h2>
                   <p class="text-[10px] sm:text-sm md:text-sm font-light mt-1">{{ event.description }}</p>
                   <p class="text-[10px] sm:text-sm md:text-sm font-semibold mt-1">Date : {{ event.date }}</p>
-                  <button class="mt-1 md:mt-2 text-[10px] sm:text-sm md:text-sm text-accent-400 border border-accent-400 rounded-full px-2 sm:px-4 md:px-6 py-0.5 sm:py-1 md:py-1 hover:bg-accent-400 hover:text-white">
-                    <a [href]="event.url">En savoir plus</a>
-                  </button>
+                  <a [href]="event.url" target="_blank" rel="noopener" class="inline-block mt-1 md:mt-2 text-[10px] sm:text-sm md:text-sm text-white bg-accent-500 border border-accent-500 rounded-full px-2 sm:px-4 md:px-6 py-0.5 sm:py-1 md:py-1 hover:bg-accent-600 transition-colors">En savoir plus</a>
                 </div>
               </div>
             </div>
@@ -69,7 +67,7 @@
 	          
 	          <div class="relative w-full h-48 overflow-hidden rounded-lg">
 	            <img [src]="event.image"
-	                 alt="{{ event.title }}"
+	                 alt="{{ event.title }}" loading="lazy" decoding="async"
 	                 class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500">
 	          </div>
 	  

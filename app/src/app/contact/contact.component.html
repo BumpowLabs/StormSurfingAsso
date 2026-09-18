@@ -1,12 +1,12 @@
 <!-- Image de fond -->
 <div class="h-[450px] relative overflow-hidden z-0">
-    <img src="../../assets/antoine1.jpg" class="z-0">
+    <img src="assets/antoine1.jpg" class="h-full w-full object-cover object-center z-0" alt="Antoine Mouille, en hommage - Storm Surfing Association">
 
     <!-- Logo centré en haut à gauche -->
 
 </div>
 <div class="absolute top-72 left-16 z-20 hidden md:block" style="z-index: auto;">
-    <img src="../../assets/antoine_logo.png" class="w-64 h-64 z-20" alt="">
+    <img src="assets/antoine_logo.png" class="w-64 h-64 z-20" alt="Logo hommage à Antoine Mouille">
 </div>
 <!-- Section Contact -->
 <div class="relative flex items-center justify-start bg-white z-0 mt-0 md:mt-24 p-6 md:p-0">
@@ -20,7 +20,7 @@
 
             <div class="grid gap-6 sm:grid-cols-2">
                 <div class="relative z-0">
-                    <input type="text" name="name"
+                    <input type="text" name="name" required autocomplete="name"
                         class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                         placeholder=" " />
                     <label
@@ -28,7 +28,7 @@
                         Nom</label>
                 </div>
                 <div class="relative z-0">
-                    <input type="text" name="email"
+                    <input type="email" name="email" required autocomplete="email"
                         class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                         placeholder=" " />
                     <label
@@ -36,7 +36,7 @@
                         Email</label>
                 </div>
                 <div class="relative z-0 col-span-2">
-                    <textarea name="message" rows="5"
+                    <textarea name="message" rows="5" required
                         class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                         placeholder=" "></textarea>
                     <label

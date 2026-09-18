@@ -32,7 +32,8 @@
           (error)="onImageError(p)"
           [ngClass]="{'opacity-0': p.loading, 'opacity-100': !p.loading}"
           class="w-full h-40 sm:h-48 md:h-56 object-cover object-center transition-opacity duration-300 grayscale-[0.15] group-hover:grayscale-0 group-hover:scale-105"
-          alt=""
+          loading="lazy" decoding="async"
+          [alt]="(p.title || 'Photo d’archive') + ' - Storm Surfing Association'"
         />
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
@@ -78,7 +79,7 @@
             [src]="currentPhoto?.src"
             (error)="onImageError(currentPhoto!)"
             class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
-            alt=""
+            [alt]="currentPhoto?.title || 'Photo d’archive Storm Surfing'"
           />
           <div class="mt-3 text-center text-gray-200 text-sm">
             <div class="font-medium">{{ currentPhoto?.title }}</div>

@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 
 interface Event {
@@ -9,6 +10,9 @@ interface Event {
   loading?: boolean;
   visible?: boolean;
   url?: string;
+  startDate?: string; // ISO ex: 2026-09-26T10:00
+  endDate?: string;   // ISO
+  location?: string;
 }
 
 @Component({
@@ -22,6 +26,9 @@ export class EventComponent implements OnInit {
       title: 'Surf & Rescue Games ',
       description: 'Sauvetage cotier et initiation surf - Apprendre les gestes qui sauvent ... et surfe tes premières vagues.',
       date: 'Samedi 26 Septembre 2026 à 10h à 17h',
+      startDate: '2026-09-26T10:00',
+      endDate: '2026-09-26T17:00',
+      location: 'Cap Fréhel, Côtes-d\'Armor, Bretagne',
       image: 'event11.jpg',
       loading: true,
       visible: true,
@@ -108,13 +115,50 @@ export class EventComponent implements OnInit {
 
   isVisible = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, @Inject(DOCUMENT) private doc: Document) {}
 
   ngOnInit() {
     // Déclencher l'animation d'entrée après un court délai
     setTimeout(() => {
       this.isVisible = true;
     }, 100);
+
+    this.injectEventJsonLd();
+  }
+
+  /** Injecte des données structurées schema.org Event pour les événements à venir. */
+  private injectEventJsonLd(): void {
+    const upcoming = this.events.filter(e => e.startDate);
+    if (!upcoming.length) { return; }
+    const data = upcoming.map(e => ({
+      '@context': 'https://schema.org',
+      '@type': 'Event',
+      name: e.title.trim(),
+      description: e.description,
+      startDate: e.startDate,
+      endDate: e.endDate ?? e.startDate,
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      image: e.image ? `https://storm-surfing.fr/${e.image}` : undefined,
+      url: e.url,
+      location: {
+        '@type': 'Place',
+        name: e.location ?? 'Cap Fréhel',
+        address: { '@type': 'PostalAddress', addressRegion: 'Bretagne', addressCountry: 'FR' }
+      },
+      organizer: {
+        '@type': 'Organization',
+        name: 'Storm Surfing Association',
+        url: 'https://storm-surfing.fr/'
+      }
+    }));
+    const existing = this.doc.getElementById('ld-events');
+    if (existing) { existing.remove(); }
+    const script = this.doc.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'ld-events';
+    script.text = JSON.stringify(data.length === 1 ? data[0] : data);
+    this.doc.head.appendChild(script);
   }
 
   // Gérer le chargement des images
