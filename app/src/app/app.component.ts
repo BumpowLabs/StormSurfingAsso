@@ -9,6 +9,10 @@ import { slideInAnimation } from './animations/route-animations'; // Chemin vers
 })
 export class AppComponent {
   title = 'app';
+  menuOpen = false;
+
+  toggleMenu(): void { this.menuOpen = !this.menuOpen; }
+  closeMenu(): void { this.menuOpen = false; }
 
   constructor() {}
 

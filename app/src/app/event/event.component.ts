@@ -23,22 +23,22 @@ interface Event {
 export class EventComponent implements OnInit {
   events: Event[] = [
 	{
-      title: 'Surf & Rescue Games ',
-      description: 'Sauvetage cotier et initiation surf - Apprendre les gestes qui sauvent ... et surfe tes premières vagues.',
-      date: 'Samedi 26 Septembre 2026 à 10h à 17h',
-      startDate: '2026-09-26T10:00',
-      endDate: '2026-09-26T17:00',
-      location: 'Cap Fréhel, Côtes-d\'Armor, Bretagne',
-      image: 'event11.jpg',
+      title: 'Projection cinéma',
+      description: 'Projection au cinéma de Pléneuf-Val-André. Le film sera dévoilé bientôt, restez connectés !',
+      date: 'Vendredi 15 janvier 2027',
+      startDate: '2027-01-15',
+      location: 'Cinéma de Pléneuf-Val-André, Côtes-d’Armor',
+      image: 'assets/logo_new.png',
       loading: true,
       visible: true,
-      url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/surf-and-rescue-games' },
+      url: 'https://www.helloasso.com/associations/storm-surfing-association' },
  /*
     {
       title: 'Entrainement piscine',
       description: 'Entrainement sur la gestion du stress aquatique avec WatermanSport à la piscine de Lamballe',
       date: 'Samedi 10 Janvier 2026 à 17H30',
       image: 'event9.jpg',
+      detailSlug: 'entrainement-piscine-lamballe',
       loading: true,
       visible: true,
       url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/storm-surfing-association-projection-glisse-le-09-01-2026-a-20h30-2',
@@ -46,12 +46,20 @@ export class EventComponent implements OnInit {
  */
   ];
 
-  pastEvents = [
+  pastEvents: { title: string; description: string; date: string; image: string; loading?: boolean; visible?: boolean; detailSlug?: string; url?: string }[] = [
+    {
+      title: 'Surf & Rescue Games',
+      description: 'Sauvetage côtier et initiation surf sur la plage des Grèves d’En Bas.',
+      date: '26 septembre 2026',
+      image: 'rescuegame2026-1.jpeg',
+      detailSlug: 'surf-rescue-games-2026',
+    },
     {
       title: 'Projection cinéma ',
-      description: 'Deuxième édition glisse au cinéma du casino de Pleneuf Val Andre avec l équipe de WatermanSport',
+      description: 'Projection de surf XXL et remise d’un chèque au 29Hood pour le championnat du monde de surf club.',
       date: 'Vendredi 09 Janvier 2026 à 20h30',
-      image: 'event10.jpg',
+      image: 'cine2026.jpeg',
+      detailSlug: 'projection-cinema-janvier-2026',
       loading: true,
       visible: true,
       url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/storm-surfing-association-projection-glisse-le-09-01-2026-a-20h30-2'
@@ -61,6 +69,7 @@ export class EventComponent implements OnInit {
       description: 'Entrainement sur la gestion du stress aquatique avec WatermanSport à la piscine de Lamballe',
       date: 'Samedi 10 Janvier 2026 à 17H30',
       image: 'event9.jpg',
+      detailSlug: 'entrainement-piscine-lamballe',
       loading: true,
       visible: true,
       url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/storm-surfing-association-projection-glisse-le-09-01-2026-a-20h30-2',
@@ -72,6 +81,7 @@ export class EventComponent implements OnInit {
       image: 'event5.jpg',
       loading: true,
       visible: true,
+      detailSlug: 'seance-yoga-surf-sables-dor',
       url: 'https://www.helloasso.com/associations/storm-surfing-association/evenements/stage-sportif'
     },
     {
@@ -88,6 +98,7 @@ export class EventComponent implements OnInit {
       description: 'Retour sur notre soirée concert au café de la plage.',
       date: '27 juin 2025',
       image: 'event3.jpg',
+      detailSlug: 'soiree-concert-sell-the-kids',
       url: '/evenements/passe/championnat-2024'
     },
 	{

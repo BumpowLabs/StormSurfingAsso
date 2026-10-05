@@ -1,0 +1,156 @@
+<ng-container *ngIf="member as m; else notFound">
+  <!-- Héro -->
+  <section class="relative w-full h-[60vh] min-h-[24rem] max-h-[44rem] overflow-hidden">
+    <img [src]="m.photo" [alt]="'Portrait de ' + m.firstName" fetchpriority="high"
+         class="absolute inset-0 w-full h-full object-cover object-center">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
+    <div class="relative z-10 max-w-5xl mx-auto h-full flex flex-col justify-end px-6 md:px-8 pb-10 text-gray-50">
+      <span class="text-sm font-medium text-accent-300 uppercase tracking-wide">{{ m.role ? m.role + ' · Storm Surfing' : 'Membre de Storm Surfing' }}</span>
+      <h1 class="text-4xl md:text-7xl font-bold mt-2">{{ m.firstName }}</h1>
+      <p *ngIf="m.tagline" class="mt-3 max-w-2xl text-lg md:text-2xl font-light italic text-gray-100 [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]">
+        « {{ m.tagline }} »
+      </p>
+    </div>
+  </section>
+
+  <!-- Corps -->
+  <section class="bg-white text-gray-900">
+    <div class="max-w-5xl mx-auto px-6 md:px-8 py-10 md:py-14">
+      <a routerLink="/membres"
+         class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 hover:text-accent-700 transition-colors">
+        &#8592; Tous les membres
+      </a>
+
+      <div class="mt-8 grid lg:grid-cols-3 gap-10">
+        <!-- Colonne principale : interview -->
+        <div class="lg:col-span-2 max-w-2xl">
+          <div class="space-y-8">
+            <div *ngIf="m.whoAreYou">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Qui es-tu ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.whoAreYou }}</p>
+            </div>
+
+            <div *ngIf="m.loveAtSea">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Ce que tu préfères au bord de l'eau ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.loveAtSea }}</p>
+            </div>
+            <div *ngIf="m.oceanMeaning">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Ce que l'océan représente pour toi ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.oceanMeaning }}</p>
+            </div>
+            <div *ngIf="m.howDiscovered">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Comment as-tu découvert le surf ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.howDiscovered }}</p>
+            </div>
+            <div *ngIf="m.firstWave">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Ta première vague ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.firstWave }}</p>
+            </div>
+
+            <!-- Citation mise en avant -->
+            <blockquote *ngIf="m.whySurf"
+                        class="border-l-4 border-accent-500 pl-5 py-1 my-2">
+              <p class="text-xl md:text-2xl font-medium text-gray-900 italic">« {{ m.whySurf }} »</p>
+              <footer class="mt-2 text-sm text-gray-500">Pourquoi le surf ?</footer>
+            </blockquote>
+
+            <div *ngIf="m.surferType">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Quel surfeur es-tu ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.surferType }}</p>
+            </div>
+            <div *ngIf="m.boardWhy">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Ta planche, c'est laquelle ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.boardWhy }}</p>
+            </div>
+            <div *ngIf="m.spotWhy">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Ton spot préféré ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.spotWhy }}</p>
+            </div>
+
+            <blockquote *ngIf="m.memorableSession"
+                        class="border-l-4 border-accent-500 pl-5 py-1 my-2">
+              <p class="text-xl md:text-2xl font-medium text-gray-900 italic">« {{ m.memorableSession }} »</p>
+              <footer class="mt-2 text-sm text-gray-500">La session inoubliable</footer>
+            </blockquote>
+
+            <div *ngIf="m.offWater">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Et quand tu n'es pas dans l'eau ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.offWater }}</p>
+            </div>
+            <div *ngIf="m.surfChangedYou">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Le surf a changé quelque chose chez toi ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.surfChangedYou }}</p>
+            </div>
+            <div *ngIf="m.howFoundStorm">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Comment as-tu découvert Storm Surfing ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.howFoundStorm }}</p>
+            </div>
+            <div *ngIf="m.stormSpirit">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">C'est quoi l'esprit Storm Surfing ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.stormSpirit }}</p>
+            </div>
+            <div *ngIf="m.perfectWave">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">La vague parfaite ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.perfectWave }}</p>
+            </div>
+            <div *ngIf="m.beginnerTip">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Ton conseil à un débutant ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.beginnerTip }}</p>
+            </div>
+            <div *ngIf="m.dreamWave">
+              <h2 class="text-xl md:text-2xl font-bold text-gray-900">Et si tu pouvais surfer n'importe quelle vague demain ?</h2>
+              <p class="mt-2 text-gray-700 leading-relaxed">{{ m.dreamWave }}</p>
+            </div>
+          </div>
+
+          <!-- Le surf en 3 mots -->
+          <div *ngIf="m.threeWords?.length" class="mt-12">
+            <h2 class="text-xl md:text-2xl font-bold text-gray-900">Le surf en trois mots</h2>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <span *ngFor="let w of m.threeWords; let i = index"
+                    class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-accent-500 text-white font-semibold">
+                <span>{{ ['🌊','🏄','⚡'][i] || '•' }}</span>{{ w }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Exergue final -->
+          <figure *ngIf="m.tagline" class="mt-12 border-t border-gray-200 pt-8">
+            <blockquote class="text-2xl md:text-3xl font-light italic text-gray-900">« {{ m.tagline }} »</blockquote>
+            <figcaption class="mt-3 text-sm text-gray-500">— {{ m.firstName }}, membre de Storm Surfing</figcaption>
+          </figure>
+        </div>
+
+        <!-- Encadré infos clés -->
+        <aside class="lg:col-span-1">
+          <div class="rounded-2xl bg-gray-50 ring-1 ring-gray-200 p-6 lg:sticky lg:top-24">
+            <h2 class="text-sm font-bold uppercase tracking-wide text-gray-500">Infos clés</h2>
+            <dl class="mt-4 space-y-3 text-sm">
+              <div *ngIf="m.age" class="flex justify-between gap-4"><dt class="text-gray-500">Âge</dt><dd class="font-medium text-gray-900 text-right">{{ m.age }}</dd></div>
+              <div *ngIf="m.location" class="flex justify-between gap-4"><dt class="text-gray-500">Vit à</dt><dd class="font-medium text-gray-900 text-right">{{ m.location }}</dd></div>
+              <div *ngIf="m.surfingSince" class="flex justify-between gap-4"><dt class="text-gray-500">Surfe depuis</dt><dd class="font-medium text-gray-900 text-right">{{ m.surfingSince }}</dd></div>
+              <div *ngIf="m.board" class="flex justify-between gap-4"><dt class="text-gray-500">Sa planche</dt><dd class="font-medium text-gray-900 text-right">{{ m.board }}</dd></div>
+              <div *ngIf="m.spot" class="flex justify-between gap-4"><dt class="text-gray-500">Son spot</dt><dd class="font-medium text-gray-900 text-right">{{ m.spot }}</dd></div>
+            </dl>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Galerie -->
+      <div *ngIf="m.photos?.length" class="mt-12">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <img *ngFor="let p of m.photos" [src]="p" [alt]="m.firstName + ' - Storm Surfing'"
+               loading="lazy" decoding="async"
+               class="w-full h-48 object-cover object-center rounded-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
+
+<ng-template #notFound>
+  <section class="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 bg-white text-gray-900">
+    <h1 class="text-2xl md:text-4xl font-bold">Membre introuvable</h1>
+    <a routerLink="/membres" class="mt-6 px-8 py-3 rounded-full bg-accent-500 text-white font-semibold hover:bg-accent-600 transition-colors">Voir tous les membres</a>
+  </section>
+</ng-template>

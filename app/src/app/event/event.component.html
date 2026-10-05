@@ -62,21 +62,22 @@
 	      </h2>
 	  
 	      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-	        <div *ngFor="let event of pastEvents" 
-	             class="group bg-white/10 backdrop-blur-xl rounded-2xl p-4 flex flex-col justify-between hover:scale-105 transition-all duration-300 overflow-hidden">
-	          
+	        <a *ngFor="let event of pastEvents"
+	           [routerLink]="event.detailSlug ? ['/evenements', event.detailSlug] : null"
+	           [class.cursor-pointer]="event.detailSlug"
+	           class="group flex flex-col justify-between bg-white/10 backdrop-blur-xl rounded-2xl p-4 hover:scale-105 transition-all duration-300 overflow-hidden">
 	          <div class="relative w-full h-48 overflow-hidden rounded-lg">
 	            <img [src]="event.image"
 	                 alt="{{ event.title }}" loading="lazy" decoding="async"
 	                 class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500">
 	          </div>
-	  
 	          <div class="mt-4 text-center">
 	            <h3 class="text-lg font-semibold text-accent-400">{{ event.title }}</h3>
 	            <p class="text-sm font-light mt-2">{{ event.description }}</p>
 	            <p class="text-xs mt-1 opacity-70">Date : {{ event.date }}</p>
+	            <span *ngIf="event.detailSlug" class="inline-block mt-3 text-xs font-semibold text-accent-400 group-hover:text-accent-300">Lire la suite &#8594;</span>
 	          </div>
-	        </div>
+	        </a>
 	      </div>
 	    </div>
 	  </section>	

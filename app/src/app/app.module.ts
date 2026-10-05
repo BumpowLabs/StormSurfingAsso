@@ -11,6 +11,9 @@ import { EventComponent } from './event/event.component';
 import { JoinComponent } from './join/join.component';
 import { ContactComponent } from './contact/contact.component';
 import { ArchivesComponent } from './archives/archives.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
+import { MembersComponent } from './members/members.component';
+import { MemberDetailComponent } from './member-detail/member-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ArchivesComponent } from './archives/archives.component';
     EventComponent,
     JoinComponent,
     ContactComponent,
-    ArchivesComponent
+    ArchivesComponent,
+    EventDetailComponent,
+    MembersComponent,
+    MemberDetailComponent
   ],
   imports: [
     BrowserModule,
